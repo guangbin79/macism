@@ -77,7 +77,9 @@ class InputSourceManager {
     }
 
     static func selectPrevious(){
-        let shortcut = getSelectPreviousShortcut()!
+        guard let shortcut = getSelectPreviousShortcut() else {
+            return
+        }
         let src = CGEventSource(stateID: .hidSystemState)
 
         let key = CGKeyCode(shortcut.0)
